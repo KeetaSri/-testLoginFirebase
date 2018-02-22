@@ -7,19 +7,28 @@
     tools:context="com.example.keetawatsrichompoo.loginfirebase.SignInActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="126dp" />
+        android:id="@+id/userDisplay"
+        android:layout_width="317dp"
+        android:layout_height="62dp"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:text="Sign out"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="189dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userDisplay" />
 </android.support.constraint.ConstraintLayout>

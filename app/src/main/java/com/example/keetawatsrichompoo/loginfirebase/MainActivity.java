@@ -46,7 +46,21 @@ public class MainActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String getEmail = email.getText().toString();
+                String getPassword = password.getText().toString();
 
+                callSignIn( getEmail, getPassword );
+            }
+
+        });
+
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String getEmail = email.getText().toString();
+                String getPassword = password.getText().toString();
+
+                callSignIn( getEmail, getPassword );
             }
 
         });
@@ -75,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                             userProfile();
                             Toast.makeText(MainActivity.this, "Account Created.",
                                     Toast.LENGTH_SHORT).show();
-                            Log.d("Test", "Account Created.")
+                            Log.d("Test", "Account Created.");
 //                            updateUI(user);
 
                         } else {
@@ -90,6 +104,24 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    private void callSignIn( String email, String password ) {
+        mAuth.signInWithEmailAndPassword( email, password ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Log.d("Test", "Sign in is successful:" + task.isSuccessful());
+
+                if( !task.isSuccessful() ) {
+                    Log.d("Test", "Sign in with email FAILED:", task.getException());
+                    Toast.makeText( MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent i = new Intent( MainActivity.this, SignInActivity.class);
+                    finish();
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     private void userProfile() {
@@ -112,22 +144,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void callSignIn( String email, String password ) {
-        mAuth.signInWithEmailAndPassword( email, password ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.d("Test", "Sign in is successful:" + task.isSuccessful());
 
-                if( !task.isSuccessful() ) {
-                    Log.d("Test", "Sign in with email FAILED:", task.getException());
-                    Toast.makeText( MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent i = new Intent( MainActivity.this, SignInActivity.class);
-                    finish();
-                    startActivity(i);
-                }
-            }
-        });
-    }
 }
 
