@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "141187506967",
+    "firebase_url": "https://loginfirebase-bdb86.firebaseio.com",
+    "project_id": "loginfirebase-bdb86",
+    "storage_bucket": "loginfirebase-bdb86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141187506967:android:ef5975c99efa2c8d",
+        "android_client_info": {
+          "package_name": "com.example.keetawatsrichompoo.loginfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141187506967-vm141npg3pregig9371gl2qg0hda1og5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.keetawatsrichompoo.loginfirebase",
+            "certificate_hash": "1c37ef3840fbf7c6652c4f4466feb9eccae1b7c4"
+          }
+        },
+        {
+          "client_id": "141187506967-kitor7ujmj7mns0irkrt2se7a52jr20j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTmJ3QfmLdekXdsUzyziAR06scS0ms3pI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141187506967-kitor7ujmj7mns0irkrt2se7a52jr20j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
