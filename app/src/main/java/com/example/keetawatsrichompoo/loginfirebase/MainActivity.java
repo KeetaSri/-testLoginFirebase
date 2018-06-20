@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private EditText email, password;
-    private Button signIn, signUp;
+    private Button signIn, signUp, skip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         signIn = (Button) findViewById(R.id.signInButton);
         signUp = (Button) findViewById(R.id.signUpButton);
+        skip = (Button) findViewById(R.id.skipButton);
 
 //  check if the user is logged in.
         if (mAuth.getCurrentUser() != null) {
@@ -42,17 +43,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
             startActivity( new Intent( getApplicationContext(), SignInActivity.class ) );
         }
-
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String getEmail = email.getText().toString();
-                String getPassword = password.getText().toString();
-
-                callSignIn( getEmail, getPassword );
-            }
-
-        });
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
                 callSignUp(getEmail, getPassword);
             }
 
+        });
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity( new Intent( getApplicationContext(), SignInActivity.class ) );
+            }
         });
     }
 
@@ -116,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("Test", "Sign in with email FAILED:", task.getException());
                     Toast.makeText( MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent i = new Intent( MainActivity.this, SignInActivity.class);
+                    Intent i = new Intent(MainActivity.this, SignInActivity.class);
                     finish();
                     startActivity(i);
                 }

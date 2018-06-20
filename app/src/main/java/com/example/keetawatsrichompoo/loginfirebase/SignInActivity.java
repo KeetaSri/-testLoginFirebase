@@ -16,29 +16,53 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private TextView textDisplay;
-    private Button signOut;
+    private Button signOut,newPost,viewPost,locateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        mAuth = FirebaseAuth.getInstance();
+//        mAuth = FirebaseAuth.getInstance();
 
         textDisplay = (TextView) findViewById(R.id.userDisplay) ;
-        signOut = (Button) findViewById(R.id.signOutButton);
 
-        String welcomeText = "Welcome " + mAuth.getCurrentUser().getEmail();
+        signOut = (Button) findViewById(R.id.signOutButton);
+        newPost = (Button) findViewById(R.id.post);
+        viewPost = (Button) findViewById(R.id.viewPost);
+        locateButton =(Button) findViewById(R.id.locateButton);
+
+//        String welcomeText = "Welcome " + mAuth.getCurrentUser().getEmail();
+        String welcomeText = "Welcome test";
 
         textDisplay.setText(welcomeText);
 
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
+                mAuth.signOut();
+                finish();
                 startActivity( new Intent( getApplicationContext(), MainActivity.class ) );
             }
 
+        });
+
+        newPost.setOnClickListener( new View.OnClickListener() {
+            public void onClick( View v ) {
+                startActivity( new Intent( getApplicationContext(), NewPost.class ) );
+            }
+        });
+
+        viewPost.setOnClickListener( new View.OnClickListener() {
+            public void onClick( View v ) {
+                startActivity( new Intent( getApplicationContext(), ViewPost.class ) );
+            }
+        });
+
+        locateButton.setOnClickListener( new View.OnClickListener() {
+            public void onClick( View v ) {
+                startActivity( new Intent( getApplicationContext(), view_location.class ) );
+            }
         });
 
     }
